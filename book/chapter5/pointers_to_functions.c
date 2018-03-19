@@ -13,7 +13,11 @@ int main(int argc, char const *argv[]) {
   scanf ("%[^\n]%*c", s1);
   //gets(s2);
   scanf ("%[^\n]%*c", s2);
-  check(s1, s2, p); //check(s1, s2, strcmp);
+  //check(s1, s2, p); //check(s1, s2, strcmp);
+  if(isalpha(*s1))
+    check(s1, s2, strcmp);
+  else
+    check(s1, s2, numcmp);
   return 0;
 }
 
@@ -21,4 +25,9 @@ void check(char *a, char *b, int (*cmp)(const char *, const char *)){
   printf("Testing for equality.\n");
   if(!(*cmp)(a, b)) printf("Equal\n");  //cmp(a, b);
   else printf("Not Equal\n");
+}
+
+int numcmp(const char *a, const char *b){
+  if(atoi(a)==atoi(b)) return 0;
+  else return 1;
 }
