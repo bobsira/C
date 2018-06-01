@@ -6,6 +6,6 @@ int main(int argc, char *argv[])
   return 0;
 }
 void print_vertical(char *str)
-{
+{ 
   while(*str) printf("%c\n", *str++);
 }
